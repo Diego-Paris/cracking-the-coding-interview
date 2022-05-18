@@ -27,10 +27,18 @@ could sort it in place in N*log(N) time and test consecutive characters for equa
 
 
 def is_unique(input_string):
-    hash_table = [False]*128  # hash table implemented as 128 bit vector
-    for character in input_string:  # inspect each character
-        index = ord(character)  # convert character into its ASCII value
-        if hash_table[index]:  # check if bit at this ASCII value is True
+
+    if len(input_string) > 128:
+        return False
+
+    letters = [False] * 128
+
+    for char in input_string:
+        idx = ord(char)
+        
+        if letters[idx]:
             return False
-        hash_table[index] = True  # add unobserved character to hash table
+        else:
+            letters[idx] = True
+
     return True
