@@ -41,4 +41,4 @@ def is_unique(input_string):
         else:
             letters[idx] = True
 
-    return True
+    return False
